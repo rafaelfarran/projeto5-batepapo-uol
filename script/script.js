@@ -14,7 +14,7 @@ function entrar(){
     
     if(nome){
         const objeto = {name: nome};
-        const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants",objeto);
+        const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants",objeto);
 
         const input = document.querySelector(".input-nome");
         const entrar = document.querySelector("button");
@@ -70,7 +70,7 @@ function iniciaProcedimento(){
 
 function manterConexao(){
     const objeto = {name: nome}
-    const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/status",objeto);
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status",objeto);
     
     promise.catch(function () {
         alert("Conexão não foi mantida!");
@@ -79,12 +79,12 @@ function manterConexao(){
 }
 
 function buscaMensagens(){
-    const promise = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
     promise.then(salvaMensagens);
 }
 
 function buscarParticipantes(){
-    const promise = axios.get("https://mock-api.driven.com.br/api/v4/uol/participants");
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
     promise.then(salvarParticipantes);
 }
 
@@ -212,7 +212,7 @@ function enviarMensagem(){
             type: visibilidade
         };
 
-        const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",objeto);
+        const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",objeto);
         promise.then(enviarMensagemSucesso);
         promise.catch(function() {
             alert("Você não está na sala, a página será atualizada!");
